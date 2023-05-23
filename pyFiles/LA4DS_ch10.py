@@ -122,7 +122,7 @@ import time
 tic = time.time()
 
 # run the test
-for i in range(1000):
+for _ in range(1000):
   A = np.random.randn(100,100)
   P,L,U = spla.lu(A)
 

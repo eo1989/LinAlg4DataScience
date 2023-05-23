@@ -170,7 +170,7 @@ varLength =  500
 
 # clock my custom-written function
 tic = time.time()
-for i in range(numIters):
+for _ in range(numIters):
   x = np.random.randn(varLength,2)
   rho(x[:,0],x[:,1])
 t1 = time.time() - tic
@@ -178,7 +178,7 @@ t1 = time.time() - tic
 
 # now for numpy's corrcoef function
 tic = time.time()
-for i in range(numIters):
+for _ in range(numIters):
   x = np.random.randn(varLength,2)
   pearsonr(x[:,0],x[:,1])
 t2 = time.time() - tic
@@ -369,19 +369,19 @@ axs[0].set_yticks([])
 
 # loop over iterations
 for iteri in range(3):
-    
+
   # step 1: compute distances
   dists = np.zeros((data.shape[0],k))
   for ci in range(k):
     dists[:,ci] = np.sum((data-centroids[ci,:])**2,axis=1)
-        
+
   # step 2: assign to group based on minimum distance
   groupidx = np.argmin(dists,axis=1)
-    
+
   # step 3: recompute centers
   for ki in range(k):
     centroids[ki,:] = [ np.mean(data[groupidx==ki,0]), np.mean(data[groupidx==ki,1]) ]
-  
+
 
   # plot data points
   for i in range(len(data)):

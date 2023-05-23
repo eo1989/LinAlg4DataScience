@@ -178,9 +178,9 @@ def oldSchoolInv(A):
 
 
   # abort if non-square
-  if not np.diff(A.shape)[0]==0:
+  if np.diff(A.shape)[0] != 0:
     raise Exception('Matrix must be square.')
-  
+
   # abort if singular
   if np.linalg.matrix_rank(A)<m:
     raise Exception('Matrix must be full-rank.')
@@ -193,21 +193,21 @@ def oldSchoolInv(A):
   # compute minors matrix
   for i in range(m):
     for j in range(m):
-      
+
       # select rows and cols
       rows = [True]*m
       rows[i] = False
-      
+
       cols = [True]*m
       cols[j] = False
-      
+
       # compute the minors
       M[i,j]=np.linalg.det(A[rows,:][:,cols])
-      
+
       # compute Grid
       G[i,j] = (-1)**(i+j)
 
-          
+
   # compute cofactors matrix
   C = M * G
 

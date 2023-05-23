@@ -141,8 +141,8 @@ res = happiness-pred_happiness
 
 
 # should be zero + some error
-print('Dot product: ' + str(np.dot(pred_happiness,res)) )
-print('Correlation: ' + str(np.corrcoef(pred_happiness,res)[0,1]))
+print(f'Dot product: {str(np.dot(pred_happiness, res))}')
+print(f'Correlation: {str(np.corrcoef(pred_happiness, res)[0, 1])}')
 print(' ')
 
 
@@ -265,7 +265,7 @@ for axi,y in zip(axs,[happiness,happiness_oops1,happiness_oops2]):
           xlim=[-1,15],ylim=[0,100],xticks=range(0,15,2))
   axi.legend(['Real data','Predicted data','Residual'])
   axi.set_title(f'SSE = {np.sum((pred_happiness-y)**2):.2f}')
-  
+
 
 
 plt.tight_layout()
