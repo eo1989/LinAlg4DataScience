@@ -144,9 +144,7 @@ baseVector = np.array([ .75,1 ])
 
 # create a figure
 fig,axs = plt.subplots(1,len(scalars),figsize=(12,3))
-i = 0 # axis counter
-
-for s in scalars:
+for i, s in enumerate(scalars):
 
   # compute the scaled vector
   v = s*baseVector
@@ -159,8 +157,6 @@ for s in scalars:
   axs[i].axis([-2.5,2.5,-2.5,2.5])
   axs[i].set(xticks=np.arange(-2,3), yticks=np.arange(-2,3))
   axs[i].set_title(f'$\sigma$ = {s:.2f}')
-  i+=1 # update axis counter
-
 plt.tight_layout()
 plt.savefig('Figure_02_03.png',dpi=300)
 plt.show()
